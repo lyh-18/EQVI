@@ -28,23 +28,48 @@ python setup.py install
 ```
 Note:  
 if you use CUDA>=9.0, just execute the above commands straightforward;  
-if you use CUDA==8.0, you need to change the folder name 'correlation_package_init' into 'correlation_package', and then execute the above commands.
+if you use CUDA==8.0, you need to change the folder name `correlation_package_init` into `correlation_package`, and then execute the above commands.
 
 Please refer to [ScopeFlow](https://github.com/avirambh/ScopeFlow) and [irr](https://github.com/visinf/irr) for more information.
 
 ### Download pretrained models
-The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing).    
+- :zap: Currently we only provide EQVI models trained on REDS_VTSR dataset.
+- :zap: We empirically find that the training datasets have significant influence on the performance. That is to say, there exists a large dataset bias. When
+the distribution of training and testing data mismatch, the model performance could dramatically drop. Thus, the generalizability of video interpolation methods is worth investigating.
+
+- The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing).  
 [Baidu Drive] will be ready soon.
-Unzip the download zip in the root dir.
+- Unzip the download zip file in the root dir.
 ```
 unzip checkpoints.zip
 ```
 There should be four models in the `checkpoints` folder:
 - `checkpoints/scopeflow/Sintel_ft/checkpoint_best.ckpt`   
-\# pretrained ScopeFlow model with Sintel finetuning (you can explore other released models in [ScopeFlow](https://github.com/avirambh/ScopeFlow))
+\# pretrained ScopeFlow model with Sintel finetuning (you can explore other released models of [ScopeFlow](https://github.com/avirambh/ScopeFlow))
 - `checkpoints/Stage3_RCSN_RQFP/Stage3_checkpoint.ckpt`    
 \# pretrained Stage3 EQVI model (RCSN + RQFP)
 - `checkpoints/Stage4_MSFuion/Stage4_checkpoint.ckpt`      
 \# pretrained Stage4 EQVI model (RCSN + RQFP + MS-Fusion)
 - `checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`  
 \# pretrained Stage123 EQVI model from scratch
+
+### Data preparation
+The REDS_VTSR train and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data)
+More datasets and models will be included soon.
+
+## Testing
+- 1. Specify the inference settings  
+modify `configs/config_xxx.py`, including:  
+  - `testset_root` 
+  - `test_size`
+  - `test_crop_size`
+  - `inter_frames`
+  - `store_path`
+etc.
+
+- 2. Execute the following command to start inference:
+```
+CUDA_VISIBLE_DEVICES=0 python interpolate_REDS_VTSR.py configs/config_xxx.py
+```
+The output results will be stored in the specified `$store_path$`.
+

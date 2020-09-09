@@ -12,6 +12,6 @@ model = 'AcSloMoS_scope_unet_residual_synthesis_edge_LSE'
 pwc_path = './utils/network-default.pytorch'
 
 
-store_path = 'outputs/release_Stage123_scratch'
+store_path = 'outputs/release_Stage123_scratch'          # where to store the outputs
 checkpoint = 'checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt'
 
