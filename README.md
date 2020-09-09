@@ -12,6 +12,9 @@ booktitle = {European Conference on Computer Vision Workshops},
 year = {2020},  
 }
 ```
+
+![overall_structure](.compare.bmp)
+
 ## Preparation
 ### Dependencies
 - Python >= 3.6
