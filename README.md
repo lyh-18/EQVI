@@ -57,8 +57,8 @@ There should be four models in the `checkpoints` folder:
 The REDS_VTSR train and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data)
 More datasets and models will be included soon.
 
-## Testing
-- 1. Specify the inference settings  
+## Quik Testing
+1. Specify the inference settings  
 modify `configs/config_xxx.py`, including:  
   - `testset_root` 
   - `test_size`
@@ -67,7 +67,7 @@ modify `configs/config_xxx.py`, including:
   - `store_path`
 etc.
 
-- 2. Execute the following command to start inference:
+2. Execute the following command to start inference:
 ```
 CUDA_VISIBLE_DEVICES=0 python interpolate_REDS_VTSR.py configs/config_xxx.py
 ```
