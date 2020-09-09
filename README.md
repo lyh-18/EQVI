@@ -1,7 +1,8 @@
 # EQVI-Enhanced Quadratic Video Interpolation
 ## winning solution of AIM2020 VTSR Challenge
-Authors: Yihao Liu, Liangbin Xie, Li Siyao, Wenxiu Sun, Yu Qiao, Chao Dong
-[paper]
+Authors: Yihao Liu*, Liangbin Xie*, Li Siyao, Wenxiu Sun, Yu Qiao, Chao Dong  [paper]  
+*equal contribution
+
 
 If you find our work is useful, please kindly cite it.
 ```
@@ -68,7 +69,7 @@ modify `configs/config_xxx.py`, including:
   - `test_crop_size`
   - `inter_frames`
   - `store_path`  
-etc.
+and etc.
 
 2. Execute the following command to start inference:
 ```
