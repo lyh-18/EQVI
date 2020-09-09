@@ -57,7 +57,7 @@ There should be four models in the `checkpoints` folder:
 \# pretrained Stage123 EQVI model from scratch
 
 ### Data preparation
-The REDS_VTSR train and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data)
+The REDS_VTSR train and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  
 More datasets and models will be included soon.
 
 ## Quik Testing
