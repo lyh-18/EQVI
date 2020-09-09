@@ -33,5 +33,14 @@ if you use CUDA==8.0, you need to change the folder name 'correlation_package_in
 Please refer to [ScopeFlow](https://github.com/avirambh/ScopeFlow) and [irr](https://github.com/visinf/irr) for more information.
 
 ### Download pretrained models
-The pretrained models can be downloaded at [Google Driver]().  
-Unzip it in the root dir.
+The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing).    
+[Baidu Drive] will be ready soon.
+Unzip the download zip in the root dir.
+```
+unzip checkpoints.zip
+```
+There should be four models in the 'checkpoints' folder:
+- checkpoints/scopeflow/Sintel_ft/checkpoint_best.ckpt   # pretrained ScopeFlow model with Sintel finetuning (you can explore other released models in [ScopeFlow](https://github.com/avirambh/ScopeFlow))
+- checkpoints/Stage3_RCSN_RQFP/Stage3_checkpoint.ckpt    # pretrained Stage3 EQVI model (RCSN + RQFP)
+- checkpoints/Stage4_MSFuion/Stage4_checkpoint.ckpt      # pretrained Stage4 EQVI model (RCSN + RQFP + MS-Fusion)
+- checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt  # pretrained Stage123 EQVI model from scratch
