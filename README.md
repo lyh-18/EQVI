@@ -42,7 +42,7 @@ the distribution of training and testing data mismatch, the model performance co
 
 - The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing).  
 [Baidu Drive] will be ready soon.
-- Unzip the download zip file in the root dir.
+- Unzip the downloaded zip file in the project root dir.
 ```
 unzip checkpoints.zip
 ```
@@ -67,12 +67,13 @@ modify `configs/config_xxx.py`, including:
   - `test_size`
   - `test_crop_size`
   - `inter_frames`
-  - `store_path`
+  - `store_path`  
 etc.
 
 2. Execute the following command to start inference:
 ```
 CUDA_VISIBLE_DEVICES=0 python interpolate_REDS_VTSR.py configs/config_xxx.py
 ```
-The output results will be stored in the specified `$store_path$`.
+The output results will be stored in the specified `$store_path$`.  
+Note: `interpolate_REDS_VTSR.py` is specially coded with REDS_VTSR dataset. For other testing datasets, you may need to modify this file. We will consider providing a generic inference script for other datasets.
 
