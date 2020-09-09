@@ -26,7 +26,7 @@ Please follow the instructions to install the required correlation package:
 cd models/scopeflow_models/correlation_package
 python setup.py install
 ```
-Note:
+Note:  
 if you use CUDA>=9.0, just execute the above commands straightforward;  
 if you use CUDA==8.0, you need to change the folder name 'correlation_package_init' into 'correlation_package', and then execute the above commands.
 
@@ -39,8 +39,12 @@ Unzip the download zip in the root dir.
 ```
 unzip checkpoints.zip
 ```
-There should be four models in the 'checkpoints' folder:
-- checkpoints/scopeflow/Sintel_ft/checkpoint_best.ckpt   # pretrained ScopeFlow model with Sintel finetuning (you can explore other released models in [ScopeFlow](https://github.com/avirambh/ScopeFlow))
-- checkpoints/Stage3_RCSN_RQFP/Stage3_checkpoint.ckpt    # pretrained Stage3 EQVI model (RCSN + RQFP)
-- checkpoints/Stage4_MSFuion/Stage4_checkpoint.ckpt      # pretrained Stage4 EQVI model (RCSN + RQFP + MS-Fusion)
-- checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt  # pretrained Stage123 EQVI model from scratch
+There should be four models in the `checkpoints` folder:
+- `checkpoints/scopeflow/Sintel_ft/checkpoint_best.ckpt`   
+\# pretrained ScopeFlow model with Sintel finetuning (you can explore other released models in [ScopeFlow](https://github.com/avirambh/ScopeFlow))
+- `checkpoints/Stage3_RCSN_RQFP/Stage3_checkpoint.ckpt`    
+\# pretrained Stage3 EQVI model (RCSN + RQFP)
+- `checkpoints/Stage4_MSFuion/Stage4_checkpoint.ckpt`      
+\# pretrained Stage4 EQVI model (RCSN + RQFP + MS-Fusion)
+- `checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`  
+\# pretrained Stage123 EQVI model from scratch
