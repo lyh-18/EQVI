@@ -13,7 +13,7 @@ year = {2020},
 }
 ```
 
-![overall_structure](compare.bmp)
+![overall_structure](compare.jpg)
 
 ## Preparation
 ### Dependencies
