@@ -16,6 +16,13 @@ year = {2020},
 
 ![visual_comparison](compare.jpg)
 
+## TODO
+- [x] Three pretrained models trained on REDS_VTSR dataset.
+- [x] Inference script for REDS_VTSR validation and testing dataset.
+- [] Upload pretrained models on [Baidu Drive].
+- [] Provide a generic inference script for arbitrary dataset.
+- [] Provide more pretrained models on other training datasets.
+
 ## Preparation
 ### Dependencies
 - Python >= 3.6
