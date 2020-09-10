@@ -19,9 +19,9 @@ year = {2020},
 ## TODO
 - [x] Three pretrained models trained on REDS_VTSR dataset.
 - [x] Inference script for REDS_VTSR validation and testing dataset.
-- [] Upload pretrained models on [Baidu Drive].
-- [] Provide a generic inference script for arbitrary dataset.
-- [] Provide more pretrained models on other training datasets.
+- [ ] Upload pretrained models on [Baidu Drive].
+- [ ] Provide a generic inference script for arbitrary dataset.
+- [ ] Provide more pretrained models on other training datasets.
 
 ## Preparation
 ### Dependencies
