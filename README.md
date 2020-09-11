@@ -1,6 +1,6 @@
 # EQVI-Enhanced Quadratic Video Interpolation
 ## winning solution of AIM2020 VTSR Challenge
-Authors: Yihao Liu*, Liangbin Xie*, Li Siyao, Wenxiu Sun, Yu Qiao, Chao Dong  [paper]  
+Authors: Yihao Liu*, Liangbin Xie*, Li Siyao, Wenxiu Sun, Yu Qiao, Chao Dong  [[paper]](https://arxiv.org/pdf/2009.04642.pdf)  
 *equal contribution
 
 
