@@ -22,6 +22,11 @@ year = {2020},
 - [ ] Upload pretrained models to [Baidu Drive].
 - [ ] Provide a generic inference script for arbitrary dataset.
 - [ ] Provide more pretrained models on other training datasets.
+- [ ] Make a demo video.
+- [ ] Summarize quantitative comparisons in a Table.
+  
+:construction_worker: The list gose on and on...  
+So many things to do, let me have a break... :see_no_evil:
 
 ## Preparation
 ### Dependencies
