@@ -19,7 +19,7 @@ year = {2020},
 ## TODO
 - [x] Three pretrained models trained on REDS_VTSR dataset.
 - [x] Inference script for REDS_VTSR validation and testing dataset.
-- [ ] Upload pretrained models to [Baidu Drive].
+- [x] Upload pretrained models to [Baidu Drive].
 - [ ] Provide a generic inference script for arbitrary dataset.
 - [ ] Provide more pretrained models on other training datasets.
 - [ ] Make a demo video.
@@ -53,8 +53,7 @@ Please refer to [ScopeFlow](https://github.com/avirambh/ScopeFlow) and [irr](htt
 - :zap: We empirically find that the training datasets have significant influence on the performance. That is to say, there exists a large dataset bias. When
 the distribution of training and testing data mismatch, the model performance could dramatically drop. Thus, the generalizability of video interpolation methods is worth investigating.
 
-- The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing).  
-[Baidu Drive] will be ready soon.
+- The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1MzXkowNePlZ8u3xVQm6l_g) (Token: satj).
 - Unzip the downloaded zip file in the project root dir.
 ```
 unzip checkpoints.zip
