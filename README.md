@@ -23,7 +23,7 @@ year = {2020},
 - [x] Provide a generic inference script for arbitrary dataset.
 - [ ] Provide more pretrained models on other training datasets.
 - [ ] Make a demo video.
-- [ ] Summarize quantitative comparisons in a Table.
+- [x] Summarize quantitative comparisons in a Table.
 - [ ] Provide a script to help with synthesizing a video from given frames.
   
 :construction_worker: The list gose on and on...  
@@ -55,7 +55,7 @@ Please refer to [ScopeFlow](https://github.com/avirambh/ScopeFlow) and [irr](htt
 the distribution of training and testing data mismatch, the model performance could dramatically drop. Thus, the generalizability of video interpolation methods is worth investigating.
 
 - The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1MzXkowNePlZ8u3xVQm6l_g) (Token: satj).
-- Unzip the downloaded zip file in the project root dir.
+- Unzip the downloaded zip file.
 ```
 unzip checkpoints.zip
 ```
@@ -69,12 +69,12 @@ There should be four models in the `checkpoints` folder:
 - `checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`  
 \# pretrained Stage123 EQVI model from scratch
 
-#### Model performance comparison (PSNR/SSIM)
+#### Model Performance Comparison on REDS_VTSR (PSNR/SSIM)
 | Model             |  baseline           | RCSN                | RQFP                 | MS-Fusion            | REDS_VTSR val (30 clips)<sup>*</sup>         |    REDS_VTSR5 (5 clips) <sup>**</sup>         |
 | :----------------:| :--------------:    | :---------------:   |:-----------------:   | :------------------: | :------------------------------: | :------------------------------: |
 |Stage3 RCSN+RQFP   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.0354                    |      24.9633/0.7268          |
 |Stage4 MS-Fusion   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :white_check_mark:  |     24.0562                    |      24.9706/0.7263          |
-|Stage123 scratch   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.0962                    |      25.0699/0.729647          |
+|Stage123 scratch   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.0962                    |      25.0699/0.7296          |
 
 \* The performance is evaluated by x2 interpolation (interpolate 1 frame between two given frames).  
 \** Poposed in our [[EQVI paper]](https://arxiv.org/pdf/2009.04642.pdf). Clip 002, 005, 010, 017 and 025 of REDS_VTSR validation set.
@@ -84,7 +84,7 @@ Clarification:
 - The **Stage3 RCSN+RQFP** and **Stage4 MS-Fusion** models are obtained during the AIM2020 VTSR Challenge via the proposed stage-wise training strategy. We adopt the stage-wise training strategy to accelerate the entire training procedure. Interestingly, after the competition, we trained a model with RCSN and RQFP equipped from scratch, and found that it functions well and even surpasses our previous models. (However, it costs much more training time.)
 
 ### Data preparation
-The REDS_VTSR train and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  
+The REDS_VTSR training and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  
 More datasets and models will be included soon.
 
 ## Quik Testing
@@ -97,8 +97,7 @@ modify `configs/config_xxx.py`, including:
   - `preserve_input`
   - `store_path`  
 and etc.
-
-:zap: Now we support testing for arbitrary dataset with a generic inference script `interpolate_EQVI.py`.  
+ 
 2. Execute the following command to start inference:
   - For REDS_VTSR dataset, you could use `interpolate_REDS_VTSR.py` to produce the interpolated frames in the same naming manner. For example, given the input frames 00000000.png and 00000008.png, if we choose to interpolate 3 frames (`inter_frames=3`), then the output frames are automatically named as 00000002.png, 00000004.png and 00000006.png.
 ```
@@ -106,6 +105,7 @@ CUDA_VISIBLE_DEVICES=0 python interpolate_REDS_VTSR.py configs/config_xxx.py
 ```
 Note: `interpolate_REDS_VTSR.py` is specially coded with REDS_VTSR dataset.
 
+:zap: Now we support testing for arbitrary dataset with a generic inference script `interpolate_EQVI.py`. 
   - For other datasets, run the following command. For example, given input frames 001.png and 002.png, if we choose to interpolate 3 frames (`inter_frames=3`), then the output frames will be named as 001_0.png, 001_1.png, 001_2.png.
 ```
 CUDA_VISIBLE_DEVICES=0 python interpolate_EQVI.py configs/config_xxx.py
