@@ -6,7 +6,7 @@ mean = [0.0, 0.0, 0.0]
 std  = [1, 1, 1]
 
 inter_frames = 1     # number of interpolated frames
-
+preserve_input = False  # whether to preserve the input frames in the store path
 
 model = 'MS_Model_Fusion'   # AcSloMoS_scope_unet_residual_synthesis_LSE | MS_Model_Fusion | AcSloMoS_scope_unet_residual_synthesis_edge_LSE
 pwc_path = './utils/network-default.pytorch'

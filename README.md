@@ -20,10 +20,11 @@ year = {2020},
 - [x] Three pretrained models trained on REDS_VTSR dataset.
 - [x] Inference script for REDS_VTSR validation and testing dataset.
 - [x] Upload pretrained models to [Baidu Drive].
-- [ ] Provide a generic inference script for arbitrary dataset.
+- [x] Provide a generic inference script for arbitrary dataset.
 - [ ] Provide more pretrained models on other training datasets.
 - [ ] Make a demo video.
 - [ ] Summarize quantitative comparisons in a Table.
+- [ ] Provide a script to help with synthesizing a video from given frames.
   
 :construction_worker: The list gose on and on...  
 So many things to do, let me have a break... :see_no_evil:
@@ -79,13 +80,22 @@ modify `configs/config_xxx.py`, including:
   - `test_size`
   - `test_crop_size`
   - `inter_frames`
+  - `preserve_input`
   - `store_path`  
 and etc.
 
+:zap: Now we support testing for arbitrary dataset with a generic inference script `interpolate_EQVI.py`.
 2. Execute the following command to start inference:
+  - For REDS_VTSR dataset, you could use `interpolate_REDS_VTSR.py` to produce the interpolated frames in the same naming manner. For example, given the input frames 00000000.png and 00000008.png, if we choose to interpolate 3 frames (`inter_frames=3`), then the output frames are automatically named as 00000002.png, 00000004.png and 00000006.png.
 ```
 CUDA_VISIBLE_DEVICES=0 python interpolate_REDS_VTSR.py configs/config_xxx.py
 ```
+Note: `interpolate_REDS_VTSR.py` is specially coded with REDS_VTSR dataset.
+
+  - For other datasets, run the following command. For example, given input frames 001.png and 002.png, if we choose to interpolate 3 frames (`inter_frames=3`), then the output frames will be named as 001_0.png, 001_1.png, 001_2.png.
+```
+CUDA_VISIBLE_DEVICES=0 python interpolate_EQVI.py configs/config_xxx.py
+```
 The output results will be stored in the specified `$store_path$`.  
-Note: `interpolate_REDS_VTSR.py` is specially coded with REDS_VTSR dataset. For other testing datasets, you may need to modify this file. We will consider providing a generic inference script for other datasets.
+
 

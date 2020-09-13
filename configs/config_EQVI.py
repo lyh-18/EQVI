@@ -6,13 +6,13 @@ mean = [0.0, 0.0, 0.0]
 std  = [1, 1, 1]
 
 inter_frames = 1     # number of interpolated frames
-preserve_input = False  # whether to preserve the input frames in the store path
+preserve_input = True  # whether to preserve the input frames in the store path
 
 
 model = 'AcSloMoS_scope_unet_residual_synthesis_edge_LSE'  
 pwc_path = './utils/network-default.pytorch'
 
 
-store_path = 'outputs/release_Stage123_scratch'          # where to store the outputs
+store_path = 'outputs/release_Stage123_scratch_new'          # where to store the outputs
 checkpoint = 'checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt'
 

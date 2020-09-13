@@ -110,9 +110,10 @@ def generate():
 
                 I1 = frame1.cuda()
                 I2 = frame2.cuda()
-
-                #revtrans(I1.clone().cpu()[0]).save(store_path + '/' + folder[1][0] + '/'  + index[1][0] + '.png')
-                #revtrans(I2.clone().cpu()[0]).save(store_path + '/' + folder[-2][0] + '/' +  index[-2][0] + '.png')
+                
+                if config.preserve_input:
+                    revtrans(I1.clone().cpu()[0]).save(store_path + '/' + folder[1][0] + '/'  + index[1][0] + '.png')
+                    revtrans(I2.clone().cpu()[0]).save(store_path + '/' + folder[-2][0] + '/' +  index[-2][0] + '.png')
             # else two frames (linear)
             else:
                 frame0 = None
@@ -125,8 +126,9 @@ def generate():
                 I1 = frame1.cuda()
                 I2 = frame2.cuda()
              
-                #revtrans(I1.clone().cpu()[0]).save(store_path + '/' + folder[0][0] + '/'  + index[0][0] + '.png')
-                #revtrans(I2.clone().cpu()[0]).save(store_path + '/' + folder[1][0] + '/' +  index[1][0] + '.png')
+                if config.preserve_input:
+                    revtrans(I1.clone().cpu()[0]).save(store_path + '/' + folder[0][0] + '/'  + index[0][0] + '.png')
+                    revtrans(I2.clone().cpu()[0]).save(store_path + '/' + folder[1][0] + '/' +  index[1][0] + '.png')
 
             
             for tt in range(config.inter_frames):
