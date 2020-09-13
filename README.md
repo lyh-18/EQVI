@@ -75,6 +75,7 @@ There should be four models in the `checkpoints` folder:
 |Stage3 RCSN+RQFP   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.035437                    |      24.963323/0.726771          |
 |Stage4 MS-Fusion   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :white_check_mark:  |     24.056243                    |      24.970632/0.726297          |
 |Stage123 scratch   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.096247                    |      25.069850/0.729647          |
+
 \* The performance is evaluated by x2 interpolation (interpolate 1 frame between two given frames)
 \** Poposed in our [[EQVI paper]](https://arxiv.org/pdf/2009.04642.pdf). Clip 002, 005, 010, 017 and 025 of REDS_VTSR validation set.
 - Clarification:
