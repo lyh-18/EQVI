@@ -69,6 +69,18 @@ There should be four models in the `checkpoints` folder:
 - `checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`  
 \# pretrained Stage123 EQVI model from scratch
 
+#### Model performance comparison (PSNR/SSIM)
+| Model             |  baseline           | RCSN                | RQFP                 | MS-Fusion            | REDS_VTSR val (30 clips)<sup>*</sup>         |    REDS_VTSR5 (5 clips) <sup>**</sup>         |
+| :----------------:| :--------------:    | :---------------:   |:-----------------:   | :------------------: | :------------------------------: | :------------------------------: |
+|Stage3 RCSN+RQFP   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.035437                    |      24.963323/0.726771          |
+|Stage4 MS-Fusion   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :white_check_mark:  |     24.056243                    |      24.970632/0.726297          |
+|Stage123 scratch   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.096247                    |      25.069850/0.729647          |
+\* The performance is evaluated by x2 interpolation (interpolate 1 frame between two given frames)
+\** Poposed in our [[EQVI paper]](https://arxiv.org/pdf/2009.04642.pdf). Clip 002, 005, 010, 017 and 025 of REDS_VTSR validation set.
+- Clarification:
+  - We recommend to use **Stage123 scratch model** (`checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`), since it achieves the best quantitative performance on REDS_VTSR validation set.
+  - The **Stage3 RCSN+RQFP** and **Stage4 MS-Fusion** models are obtained during the AIM2020 VTSR Challenge via the proposed stage-wise training strategy. We adopt the stage-wise training strategy to accelerate the entire training procedure. Interestingly, after the competition, we trained a model with RCSN and RQFP equipped from scratch, and found that it functions well and even surpasses our previous models. (However, it costs much more training time.)
+
 ### Data preparation
 The REDS_VTSR train and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  
 More datasets and models will be included soon.
@@ -84,7 +96,7 @@ modify `configs/config_xxx.py`, including:
   - `store_path`  
 and etc.
 
-:zap: Now we support testing for arbitrary dataset with a generic inference script `interpolate_EQVI.py`.
+:zap: Now we support testing for arbitrary dataset with a generic inference script `interpolate_EQVI.py`.  
 2. Execute the following command to start inference:
   - For REDS_VTSR dataset, you could use `interpolate_REDS_VTSR.py` to produce the interpolated frames in the same naming manner. For example, given the input frames 00000000.png and 00000008.png, if we choose to interpolate 3 frames (`inter_frames=3`), then the output frames are automatically named as 00000002.png, 00000004.png and 00000006.png.
 ```
