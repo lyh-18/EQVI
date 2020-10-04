@@ -16,6 +16,10 @@ year = {2020},
 
 ![visual_comparison](compare.jpg)
 
+## News
+- We provide a new pretrained EQVI model trained with perceptual loss (VGG), namely EQVI-P. By adopting perceptual loss, the model can produce more visually pleasing results with sharper edges and textures, at the cost of sacrificing PSNR and SSIM values. If you care more about visual effects, we recommend you to use this model.
+- According to some suggestions, We provide several sample interpolation results for reference. Specifically, we now provide two predicted results produced by EQVI and EQVI-P on REDS_VTSR validation set.
+
 ## TODO
 - [x] Three pretrained models trained on REDS_VTSR dataset.
 - [x] Inference script for REDS_VTSR validation and testing dataset.
@@ -54,12 +58,12 @@ Please refer to [ScopeFlow](https://github.com/avirambh/ScopeFlow) and [irr](htt
 - :zap: We empirically find that the training datasets have significant influence on the performance. That is to say, there exists a large dataset bias. When
 the distribution of training and testing data mismatch, the model performance could dramatically drop. Thus, the generalizability of video interpolation methods is worth investigating.
 
-- The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/1n1N8Sc2HK5Wy0JHX5FXviO1aV73cWXOD/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/1MzXkowNePlZ8u3xVQm6l_g) (Token: satj).
+- The pretrained models can be downloaded at [Google Drive](https://drive.google.com/file/d/10BUA1ExZ5Cb_Fgetr-7chUHeXVgK9C2q/view?usp=sharing) or [Baidu Drive](https://pan.baidu.com/s/13c0xkKGUis6GJje7f5A0yw) (token: s4sv).
 - Unzip the downloaded zip file.
 ```
 unzip checkpoints.zip
 ```
-There should be four models in the `checkpoints` folder:
+There should be five models in the `checkpoints` folder:
 - `checkpoints/scopeflow/Sintel_ft/checkpoint_best.ckpt`   
 \# pretrained ScopeFlow model with Sintel finetuning (you can explore other released models of [ScopeFlow](https://github.com/avirambh/ScopeFlow))
 - `checkpoints/Stage3_RCSN_RQFP/Stage3_checkpoint.ckpt`    
@@ -68,6 +72,8 @@ There should be four models in the `checkpoints` folder:
 \# pretrained Stage4 EQVI model (RCSN + RQFP + MS-Fusion)
 - `checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`  
 \# pretrained Stage123 EQVI model from scratch
+- `checkpoints/Stage123_scratch_vgg/Stage123_scratch_vgg_checkpoint.ckpt`  
+\# pretrained Stage123 EQVI model from scratch with adding perceptual loss.
 
 #### Model Performance Comparison on REDS_VTSR (PSNR/SSIM)
 | Model             |  baseline           | RCSN                | RQFP                 | MS-Fusion            | REDS_VTSR val (30 clips)<sup>*</sup>         |    REDS_VTSR5 (5 clips) <sup>**</sup>         |
@@ -75,13 +81,18 @@ There should be four models in the `checkpoints` folder:
 |Stage3 RCSN+RQFP   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.0354                    |      24.9633/0.7268          |
 |Stage4 MS-Fusion   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :white_check_mark:  |     24.0562                    |      24.9706/0.7263          |
 |Stage123 scratch   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.0962                    |      25.0699/0.7296          |
+|Stage123 scratch vgg   | :white_check_mark:  | :white_check_mark:  | :white_check_mark:   |  :x:                 |     24.0069                    |      24.9684/0.7237          |
 
 \* The performance is evaluated by x2 interpolation (interpolate 1 frame between two given frames).  
 \** Poposed in our [[EQVI paper]](https://arxiv.org/pdf/2009.04642.pdf). Clip 002, 005, 010, 017 and 025 of REDS_VTSR validation set.
   
 Clarification:
-- We recommend to use **Stage123 scratch model** (`checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`), since it achieves the best quantitative performance on REDS_VTSR validation set.
+- For quantitative comparison, we recommend to use **Stage123 scratch model** (`checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt`), since it achieves the best quantitative performance on REDS_VTSR validation set.
+- For better visual performance, we recommend to use **Stage123 scratch vgg model** (`checkpoints/Stage123_scratch_vgg/Stage123_scratch_vgg_checkpoint.ckpt`). It can produce more visually pleasing results with sharper and clearer edges and textures.
 - The **Stage3 RCSN+RQFP** and **Stage4 MS-Fusion** models are obtained during the AIM2020 VTSR Challenge via the proposed stage-wise training strategy. We adopt the stage-wise training strategy to accelerate the entire training procedure. Interestingly, after the competition, we trained a model with RCSN and RQFP equipped from scratch, and found that it functions well and even surpasses our previous models. (However, it costs much more training time.)
+
+### Sample interpolated results
+For convenient comparison, we now provide two predicted results produced by **EQVI (Stage123_scratch_checkpoint.ckpt)** and **EQVI-P (Stage123_scratch_vgg_checkpoint)** on REDS_VTSR validation set. You can download them at [Google Drive] (https://drive.google.com/file/d/1ghvxcFE0PZADchEdoMeX7WUi9PKobzE7/view?usp=sharing).
 
 ### Data preparation
 The REDS_VTSR training and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  

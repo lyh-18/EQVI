@@ -1,2 +1,3 @@
 /outputs/*
 /checkpoints/*
+compute_psnr_VTSR_folders.py
