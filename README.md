@@ -17,8 +17,8 @@ year = {2020},
 ![visual_comparison](compare.jpg)
 
 ## News
-- We provide a new pretrained EQVI model trained with perceptual loss (VGG), namely EQVI-P. By adopting perceptual loss, the model can produce more visually pleasing results with sharper edges and textures, at the cost of sacrificing PSNR and SSIM values. If you care more about visual effects, we recommend you to use this model.
-- According to some suggestions, We provide several sample interpolation results for reference. Specifically, we now provide two predicted results produced by EQVI and EQVI-P on REDS_VTSR validation set.
+- [2020/10/4] We provide a new pretrained EQVI model trained with perceptual loss (VGG), namely **EQVI-P**. By adopting perceptual loss, the model can produce more visually pleasing results with sharper edges and textures, at the cost of sacrificing PSNR and SSIM values. If you care more about visual effects, we recommend you to use this model.
+- [2020/10/4] According to some suggestions, we provide several sample interpolation results for reference. Specifically, we now provide two predicted results produced by EQVI and EQVI-P on REDS_VTSR validation set.
 
 ## TODO
 - [x] Three pretrained models trained on REDS_VTSR dataset.
@@ -92,7 +92,7 @@ Clarification:
 - The **Stage3 RCSN+RQFP** and **Stage4 MS-Fusion** models are obtained during the AIM2020 VTSR Challenge via the proposed stage-wise training strategy. We adopt the stage-wise training strategy to accelerate the entire training procedure. Interestingly, after the competition, we trained a model with RCSN and RQFP equipped from scratch, and found that it functions well and even surpasses our previous models. (However, it costs much more training time.)
 
 ### Sample interpolated results
-For convenient comparison, we now provide two predicted results produced by **EQVI (Stage123_scratch_checkpoint.ckpt)** and **EQVI-P (Stage123_scratch_vgg_checkpoint)** on REDS_VTSR validation set. You can download them at [Google Drive] (https://drive.google.com/file/d/1ghvxcFE0PZADchEdoMeX7WUi9PKobzE7/view?usp=sharing).
+For convenient comparison, we now provide two predicted results produced by **EQVI (Stage123_scratch_checkpoint.ckpt)** and **EQVI-P (Stage123_scratch_vgg_checkpoint)** on REDS_VTSR validation set. You can download them at [Google Drive](https://drive.google.com/file/d/1ghvxcFE0PZADchEdoMeX7WUi9PKobzE7/view?usp=sharing).
 
 ### Data preparation
 The REDS_VTSR training and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  
