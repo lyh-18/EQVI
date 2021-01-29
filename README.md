@@ -18,7 +18,7 @@ year = {2020},
 
 ## News
 - [2021/1/29] :zap: We have released the training codes! Please refer to the instructions.
-- [2021/1/29] We provide a script `synthesize_video.py` to help synthesize video from consecutive frames. We update the ''
+- [2021/1/29] We provide a script `synthesize_video.py` to help synthesize video from consecutive frames. We slightly modified the file `models/scopeflow_models/IRR_PWC_V2.py`. If you can run the testing codes successfully before, you can ignore the changes. We update this file to avoid some latent problems when testing.
 - [2020/10/4] We provide a new pretrained EQVI model trained with perceptual loss (VGG), namely **EQVI-P**. By adopting perceptual loss, the model can produce more visually pleasing results with sharper edges and textures, at the cost of sacrificing PSNR and SSIM values. If you care more about visual effects, we recommend you to use this model.
 - [2020/10/4] According to some suggestions, we provide several sample interpolation results for reference. Specifically, we now provide two predicted results produced by EQVI and EQVI-P on REDS_VTSR validation set.
 
