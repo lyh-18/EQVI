@@ -183,11 +183,8 @@ class PWCNet(nn.Module):
         output_dict['flow'] = flows
         output_dict['occ'] = occs
 
-        if self.training:
-            
-            return 20*output_dict['flow'][-1][0]
-        else:
-            return 20*output_dict_eval
+        return 20*output_dict['flow'][-1][0]
+
 
     def submodules_summary(self):
         print("Trainable submodules: {}".format({p[0] for p in self.named_parameters()

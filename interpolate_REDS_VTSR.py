@@ -287,13 +287,6 @@ def test():
     max_psnr = 0
     max_id = 0
     psnr_dict = {}
-    for i, psnr in enumerate(dict1['valPSNR']):
-        print('Epoch: {}   PSNR: {}'.format(i, psnr))
-        if len(psnr) == 1:
-            psnr_dict[i] = psnr[0]
-    print('Max PSNR: {}  epoch: {}'.format(max_psnr, max_id))
-    psnr_dict = sorted(psnr_dict.items(), key = lambda kv:(kv[1], kv[0]))
-    print(psnr_dict)
     
     print('MS test: ', MS_test)
     print('flip test: ', flip_test)

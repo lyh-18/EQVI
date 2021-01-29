@@ -1,3 +1,4 @@
 /outputs/*
 /checkpoints/*
 compute_psnr_VTSR_folders.py
+/Reproduce001_EQVI_from_scratch_5Lap_10L1/*
