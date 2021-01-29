@@ -130,7 +130,7 @@ The output results will be stored in the specified `$store_path$`.
 1. Specify the inference settings in `configs/config_train_EQVI_VTSR.py`
 2.  execute the following commands:  
 `CUDA_VISIBLE_DEVICES=0,1,2,3 python train_EQVI_lap_l1.py --config configs/config_train_EQVI_VTSR.py`  
-Note:
+Note:  
 (1) This will train EQVI model with equipping RCSN and RQFP from scratch. The performance is better than the results we reported in the paper.  
 (2) We print training logs after each epoch, so it dose **take a while to show the logs**. Specifically, we use 4 GTX 2080Ti GPUs to train the model. About 3600s for one epoch. The training procedure lasts about 3-5 days.  
 (3) The dataloader is coded with REDS_VTSR dataset. If you want to train on your own dataset, you may need to modify or rewrite the dataloader file.
