@@ -127,7 +127,7 @@ CUDA_VISIBLE_DEVICES=0 python interpolate_EQVI.py configs/config_xxx.py
 The output results will be stored in the specified `$store_path$`.  
 
 ## Training
-1. Specify the inference settings in `configs/config_train_EQVI_VTSR.py`
+1. Specify the training settings in `configs/config_train_EQVI_VTSR.py`
 2.  execute the following commands:  
 `CUDA_VISIBLE_DEVICES=0,1,2,3 python train_EQVI_lap_l1.py --config configs/config_train_EQVI_VTSR.py`  
 Note:  
