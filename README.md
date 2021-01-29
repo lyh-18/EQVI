@@ -17,6 +17,8 @@ year = {2020},
 ![visual_comparison](compare.jpg)
 
 ## News
+- [2021/1/29] :zap: We have released the training codes! Please refer to the instructions.
+- [2021/1/29] We provide a script `synthesize_video.py` to help synthesize video from consecutive frames. We update the ''
 - [2020/10/4] We provide a new pretrained EQVI model trained with perceptual loss (VGG), namely **EQVI-P**. By adopting perceptual loss, the model can produce more visually pleasing results with sharper edges and textures, at the cost of sacrificing PSNR and SSIM values. If you care more about visual effects, we recommend you to use this model.
 - [2020/10/4] According to some suggestions, we provide several sample interpolation results for reference. Specifically, we now provide two predicted results produced by EQVI and EQVI-P on REDS_VTSR validation set.
 
@@ -28,7 +30,8 @@ year = {2020},
 - [ ] Provide more pretrained models on other training datasets.
 - [ ] Make a demo video.
 - [x] Summarize quantitative comparisons in a Table.
-- [ ] Provide a script to help with synthesizing a video from given frames.
+- [x] Provide a script to help with synthesizing a video from given frames.
+- [x] Release training codes.
   
 :construction_worker: The list gose on and on...  
 So many things to do, let me have a break... :see_no_evil:
@@ -98,7 +101,7 @@ For convenient comparison, we now provide two predicted results produced by **EQ
 The REDS_VTSR training and validation dataset can be found [here](https://competitions.codalab.org/competitions/24584#participate-get-data).  
 More datasets and models will be included soon.
 
-## Quik Testing
+## Quick Testing
 1. Specify the inference settings  
 modify `configs/config_xxx.py`, including:  
   - `testset_root` 
@@ -123,4 +126,11 @@ CUDA_VISIBLE_DEVICES=0 python interpolate_EQVI.py configs/config_xxx.py
 ```
 The output results will be stored in the specified `$store_path$`.  
 
-
+## Training
+1. Specify the inference settings in `configs/config_train_EQVI_VTSR.py`
+2.  execute the following commands:
+`CUDA_VISIBLE_DEVICES=0,1,2,3 python train_EQVI_lap_l1.py --config configs/config_train_EQVI_VTSR.py`
+Note:
+(1) This will train EQVI model with equipping RCSN and RQFP from scratch. The performance is better than the results we reported in the paper.
+(2) We print training logs after each epoch, so it dose **take a while to show the logs**. Specifically, we use 4 GTX 2080Ti GPUs to train the model. About 3600s for one epoch. The training procedure lasts about 3-5 days.
+(3) The dataloader is coded with REDS_VTSR dataset. If you want to train on your own dataset, you may need to modify or rewrite the dataloader file.
